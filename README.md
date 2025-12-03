@@ -1,7 +1,5 @@
 # WEB_SCRAPPING_SUNAT_RUC
 
-API para obtener los datos de cualquier ruc a través de web scrapping en la página de consulta ruc de la sunat
-
 API REST para consultar información de RUCs en SUNAT usando web scraping con Selenium.
 
 ## Despliegue en Cloud Run
@@ -65,7 +63,6 @@ O búscala en la consola de Google Cloud.
 - `GET /` - Información de la API
 - `GET /health` - Health check
 - `POST /consulta-ruc` - Consultar un RUC individual
-- `POST /consulta-multiple` - Consultar múltiples RUCs
 - `GET /docs` - Documentación interactiva (Swagger UI)
 
 ### Ejemplos de uso
@@ -77,26 +74,6 @@ curl -X POST "https://TU_URL/consulta-ruc" \
   -H "Content-Type: application/json" \
   -d '{"ruc": "10754034420"}'
 ```
-
-#### Consultar múltiples RUCs:
-
-```bash
-curl -X POST "https://TU_URL/consulta-multiple" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "rucs": ["10754034420", "20606333227"],
-    "guardar_excel": false
-  }'
-```
-
-### 📚 Más ejemplos
-
-Revisa los archivos de ejemplo incluidos:
-
-- `ejemplo_consulta.py` - Ejemplo en Python
-- `ejemplo_colab.ipynb` - Notebook para Google Colab
-- `ejemplo_frontend.html` - Frontend HTML/JavaScript
-- `ejemplos_uso.md` - Guía completa con todos los métodos
 
 ## Estructura del proyecto
 
@@ -113,5 +90,4 @@ Revisa los archivos de ejemplo incluidos:
 
 - La API usa Chrome en modo headless para el web scraping
 - Las consultas pueden tardar varios segundos por RUC
-- Se recomienda usar el endpoint `/consulta-multiple` para múltiples RUCs en lugar de múltiples llamadas individuales
 - El servicio está optimizado para Cloud Run pero puede ejecutarse localmente con Docker
